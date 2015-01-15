@@ -1,0 +1,17 @@
+<div ng-controller="homeController">
+  <label>Hello? Is anybody there?</label>
+  <input type="text" ng-model="hello" placeholder="Maybe a traditional greeting?">
+  <hr>
+
+    
+  <span ng-repeat="post in posts">
+    {{post.title}}
+    {{post.date}}
+    {{post.content}}
+    {{tags}}
+  </span>
+  
+  <small ng-repeat="tag_id in post.tag_ids">
+    {{tag_ids}}
+  </small>
+</div>
