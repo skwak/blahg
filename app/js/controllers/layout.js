@@ -25,6 +25,25 @@ homeControllerModule.controller('homeController', ['$scope', '$http', function($
 }
 ];
 
+$scope.newPost = {'tag_ids': []};
+
+$scope.getTagName = function(id) {
+  ret = "";
+  // loops through all of the tags in $scope.tags
+  for (i = 0; i < $scope.tags.length; i++){
+    // checks to see if the param we passed is equal to the tag id
+    if(id == $scope.tags[i].id) {
+      ret = $scope.tags[i];
+    }
+  }
+  return ret;
+};
+
+$scope.submitNewPost = function() {
+  $scope.posts.push($scope.newPost);
+};
+
+
 $scope.tags =
 [ 
 { "id": "1a", "name": "2cool4school" },
@@ -32,5 +51,39 @@ $scope.tags =
 { "id": "doop5", "name": "everything is awesome" }
 ];
 
+$scope.toggleId = function(id) {
+  i = $scope.newPost.tag_ids.indexOf(id);
+  
+  if (i==-1) {
+    $scope.newPost.tag_ids.push(id);
+  } else {
+    $scope.newPost.tag_ids.splice(i, 1);
+  }
+};
+
+$scope.addTag = function(id) {
+  i = $scope.tagArray.indexOf(id);
+  if(i == -1) {
+    $scope.tagArray.push(id);
+  } else {
+    $scope.tagArray.splice(i, 1);
+  }
+};
+
 }]);
 
+homeControllerModule.filter('selectedTags', function() {
+  return function(posts, tagArray) {
+    return posts.filter(function(post) {
+      for (var i in posts) {
+        if (tagArray.length == 0) {
+          return true;
+        } else {
+          if (tagArray.indexOf(post.tag_ids[i]) != -1) {
+            return true;
+          }
+        }
+      }
+    });
+  };
+});
