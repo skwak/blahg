@@ -1,6 +1,8 @@
 var homeControllerModule = angular.module('homeControllerModule', []);
 
 homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
+  $scope.hello = "Hi";
+  
   $scope.posts = [
 {
   "content": "Run biting sagittis elit cras nec vestibulum, tempus lick sleep on your keyboard stuck in a tree suscipit. Vestibulum judging you sleep in the sink eat the grass non non, zzz amet pellentesque tincidunt a. Iaculis purr rutrum claw faucibus sniff, nibh quis nunc feed me suspendisse vehicula toss the mousie. Sleep in the sink justo vestibulum ac hairball, tail flick jump eat faucibus enim ut purr iaculis. Zzz give me fish stuck in a tree jump on the table, in viverra rhoncus scratched sleep in the sink hiss stuck in a tree pharetra. Rutrum bat nam orci turpis sniff suspendisse, nibh rutrum nunc sagittis run orci turpis. Bat purr fluffy fur libero, attack lick adipiscing catnip sleep in the sink nunc.",
@@ -23,67 +25,72 @@ homeControllerModule.controller('homeController', ['$scope', '$http', function($
   "tag_ids": ["2b", "doop5"],
   "title": "Teaching at Ada"
 }
-];
-
-$scope.newPost = {'tag_ids': []};
-
-$scope.getTagName = function(id) {
-  ret = "";
-  // loops through all of the tags in $scope.tags
-  for (i = 0; i < $scope.tags.length; i++){
-    // checks to see if the param we passed is equal to the tag id
-    if(id == $scope.tags[i].id) {
-      ret = $scope.tags[i];
-    }
-  }
-  return ret;
-};
-
-$scope.submitNewPost = function() {
-  $scope.posts.push($scope.newPost);
-};
-
+]
 
 $scope.tags =
 [ 
 { "id": "1a", "name": "2cool4school" },
 { "id": "2b", "name": "kittycat" },
 { "id": "doop5", "name": "everything is awesome" }
-];
+]
+
+$scope.getTagName = function(id) {
+  var ret = "";
+  // loops through all of the tags in $scope.tags
+  for (i = 0; i < $scope.tags.length; i++){
+    // checks to see if the param we passed is equal to the tag id
+    if(id == $scope.tags[i].id) {
+      ret = $scope.tags[i].name
+    }
+  }
+  return ret;
+}
+
+$scope.newPost = {"title": '', "content": '', "tag_ids": []}
+
+$scope.submitNewPost = function(){
+  var postToPush = {};
+  postToPush.title = $scope.newPost.title;
+  postToPush.content = $scope.newPost.content;
+  postToPush.tag_ids = $scope.newPost.tag_ids;
+  $scope.posts.push(postToPush);
+}
 
 $scope.toggleId = function(id) {
-  i = $scope.newPost.tag_ids.indexOf(id);
+  var i = $scope.newPost.tag_ids.indexOf(id);
   
-  if (i==-1) {
+  if(i == -1) {
     $scope.newPost.tag_ids.push(id);
   } else {
     $scope.newPost.tag_ids.splice(i, 1);
   }
-};
+}
+
+$scope.tagArray = [];
 
 $scope.addTag = function(id) {
-  i = $scope.tagArray.indexOf(id);
+  var i = $scope.tagArray.indexOf(id);
   if(i == -1) {
     $scope.tagArray.push(id);
   } else {
     $scope.tagArray.splice(i, 1);
   }
-};
-
+}
 }]);
 
 homeControllerModule.filter('selectedTags', function() {
   return function(posts, tagArray) {
     return posts.filter(function(post) {
       for (var i in posts) {
-        if (tagArray.length == 0) {
+        if(tagArray.length == 0) {
           return true;
         } else {
-          if (tagArray.indexOf(post.tag_ids[i]) != -1) {
+          if(tagArray.indexOf(post.tag_ids[i]) != -1){
             return true;
           }
         }
       }
-    });
-  };
-});
+      return false;
+    })
+  }
+})
