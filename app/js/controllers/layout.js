@@ -7,12 +7,17 @@ $http.get('http://localhost:3000/posts').success(function(data) {
   $scope.posts = data;
 });
 
-$scope.tags =
-[ 
-{ "id": "1a", "name": "tech" },
-{ "id": "2b", "name": "art" },
-{ "id": "doop5", "name": "etc" }
-]
+
+$http.get('http://localhost:3000/tags').success(function(data) {
+  $scope.tags = data;
+});
+
+// $scope.tags =
+// [ 
+// { "id": "1a", "name": "tech" },
+// { "id": "2b", "name": "art" },
+// { "id": "doop5", "name": "etc" }
+// ];
 
 $scope.getTagName = function(id) {
   var ret = "";
@@ -20,13 +25,13 @@ $scope.getTagName = function(id) {
   for (i = 0; i < $scope.tags.length; i++){
     // checks to see if the param we passed is equal to the tag id
     if(id == $scope.tags[i].id) {
-      ret = $scope.tags[i].name
+      ret = $scope.tags[i].name;
     }
   }
   return ret;
-}
+};
 
-$scope.newPost = {"title": '', "content": '', "tag_ids": []}
+$scope.newPost = {"title": '', "content": '', "tag_ids": []};
 
 $scope.submitNewPost = function(){
   var postToPush = {};
@@ -34,7 +39,7 @@ $scope.submitNewPost = function(){
   postToPush.content = $scope.newPost.content;
   postToPush.tag_ids = $scope.newPost.tag_ids;
   $scope.posts.push(postToPush);
-}
+};
 
 $scope.toggleId = function(id) {
   var i = $scope.newPost.tag_ids.indexOf(id);
@@ -44,7 +49,7 @@ $scope.toggleId = function(id) {
   } else {
     $scope.newPost.tag_ids.splice(i, 1);
   }
-}
+};
 
 $scope.tagArray = [];
 
@@ -55,7 +60,7 @@ $scope.addTag = function(id) {
   } else {
     $scope.tagArray.splice(i, 1);
   }
-}
+};
 }]);
 
 homeControllerModule.filter('selectedTags', function() {
