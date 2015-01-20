@@ -6,3 +6,7 @@ html {
 body a {
   color: #05ec51;
 }
+
+.form {
+  padding: 1em;
+}

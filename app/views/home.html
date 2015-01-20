@@ -13,10 +13,10 @@
   
   WRITE A NEW POST: 
   <div class="form">
-    Title: <input type="text" ng-model="newPost.title"/>
-    Content: <input type="text" ng-model="newPost.content"/>
+    Title: <input type="text" ng-model="newPost.title"/><br>
+    Content: <input type="text" ng-model="newPost.content"/><br>
     Tags: <span ng-repeat="tag in tags">
-      <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input>
+      <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input><br>
     </span>
     <button ng-click="submitNewPost()">
       Create a new post
