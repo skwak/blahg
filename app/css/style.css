@@ -12,6 +12,7 @@ body a {
 }
 
 .title {
+  font-family: "Open Sans";
   margin-bottom: .2em;
 }
 
@@ -22,4 +23,14 @@ input[type="text"] {
 .blog-title {
   font-family: "Open Sans";
   color: #31d988;
+}
+
+hr {
+  display: block; 
+  height: 1px;
+  border: 0; 
+  border-top: 1px solid #ccc;
+  margin: 1em 0; 
+  padding: 0; 
+  width: 60%;
 }
