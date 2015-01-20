@@ -3,29 +3,9 @@ var homeControllerModule = angular.module('homeControllerModule', []);
 homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
   $scope.hello = "Hi";
   
-  $scope.posts = [
-{
-  "content": "tech tech tech tech tech tech wired geekwire techcrunch gizmodo boingboing nonstop all the time you can't stop it",
-  "date": "2015-01-07T00:00:00.000Z",
-  "id": "123abc",
-  "tag_ids": ["1a", "2b"],
-  "title": "so much tech"
-},
-{
-  "content": "art is weird art is weird art is weird lalalalalalla",
-  "date": "2015-01-07T00:00:00.000Z",
-  "id": "woEvm3",
-  "tag_ids": [],
-  "title": "art is weird"
-},
-{
-  "content": "pizza mushroom cake on a hotdog with banana spread over an apple pretzel almond burrito with a marmalade hummus stew on the side",
-  "date": "2015-01-07T00:00:00.000Z",
-  "id": "bo2jwi",
-  "tag_ids": ["2b", "doop5"],
-  "title": "food"
-}
-]
+$http.get('http://localhost:3000/posts').success(function(data) {
+  $scope.posts = data;
+});
 
 $scope.tags =
 [ 

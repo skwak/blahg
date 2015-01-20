@@ -1,4 +1,6 @@
 <div ng-controller="newPostController">
-  new name is: {{new.name}}
-  name on posts controller is {{name}}
+  Title: <input type="text" ng-model="newPost.title" />
+  Content: <input type="text" ng-model="newPost.content" />
+  <button ng-click="submitNewPost()">Submit</button>
+  {{newPost}}
 </div>
