@@ -4,7 +4,7 @@ html {
 }
 
 body a {
-  color: #05ec51;
+  color: #94c1c3;
 }
 
 .form {
@@ -17,4 +17,9 @@ body a {
 
 input[type="text"] {
   width: 10em;
+}
+
+.blog-title {
+  font-family: "Open Sans";
+  color: #31d988;
 }
