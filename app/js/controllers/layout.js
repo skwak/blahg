@@ -82,7 +82,7 @@ homeControllerModule.filter('selectedTags', function() {
   return function(posts, tagArray) {
     return posts.filter(function(post) {
       for (var i in posts) {
-        if(tagArray.length == 0) {
+        if(tagArray.length === 0) {
           return true;
         } else {
           if(tagArray.indexOf(post.tag_ids[i]) != -1){
