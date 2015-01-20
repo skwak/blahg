@@ -34,11 +34,20 @@ $scope.getTagName = function(id) {
 $scope.newPost = {"title": '', "content": '', "tag_ids": []};
 
 $scope.submitNewPost = function(){
-  var postToPush = {};
-  postToPush.title = $scope.newPost.title;
-  postToPush.content = $scope.newPost.content;
-  postToPush.tag_ids = $scope.newPost.tag_ids;
-  $scope.posts.push(postToPush);
+  $http.post('http://localhost:3000/posts', 
+    {
+      post: {
+        title: $scope.newPost.title,
+        content: $scope.newPost.content
+        // eventually will want to add tags and dates
+      }
+    }
+  )
+  // var postToPush = {};
+  // postToPush.title = $scope.newPost.title;
+  // postToPush.content = $scope.newPost.content;
+  // postToPush.tag_ids = $scope.newPost.tag_ids;
+  // $scope.posts.push(postToPush);
 };
 
 $scope.toggleId = function(id) {
