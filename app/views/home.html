@@ -10,6 +10,8 @@
   
   search is: {{search}}
   <br><br><hr>
+  
+  WRITE A NEW POST: 
   <div class="form">
     Title: <input type="text" ng-model="newPost.title"/>
     Content: <input type="text" ng-model="newPost.content"/>
@@ -20,7 +22,11 @@
       Create a new post
     </button>
   </div>
-  the new post is: {{newPost}}
+  
+  HERE'S YOUR POST:
+  {{newPost.title}}
+  {{newPost.content}}
+  {{newPost.tag.id}}
   
   <span ng-repeat="post in posts | filter:search:strict">
     
