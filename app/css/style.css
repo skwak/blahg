@@ -1,19 +1,18 @@
 html {
   font-family: "helvetica neue";
-  margin-left: 2em;
+  margin-left: 10%;
 }
 
 body a {
   color: #94c1c3;
 }
 
-.form {
-  padding: 1em;
+.header {
+  margin-bottom: 2em;
 }
 
-.title {
-  font-family: "Open Sans";
-  margin-bottom: .2em;
+.form {
+  padding: 1em;
 }
 
 input[type="text"] {
@@ -22,7 +21,13 @@ input[type="text"] {
 
 .blog-title {
   font-family: "Open Sans";
+  font-size: 2.5em;
   color: #31d988;
+}
+
+.title {
+  font-family: "Open Sans";
+  margin-bottom: .2em;
 }
 
 hr {

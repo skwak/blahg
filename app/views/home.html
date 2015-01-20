@@ -23,23 +23,33 @@
     
     Tags:<br>
     
-    <span ng-repeat="tag in tags"><br>
+    <div ng-repeat="tag in tags"><br>
       <input type="checkbox" ng-model="checked" ng-init="checked=false" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input><br>
+    
       <span ng-if="checked" class="animate-if">
-        checked {{newPost.tag}}
+        {{tag.name}}
       </span>
-    </span>
+      
+    </div>
+    
     <button ng-click="submitNewPost()">
       Create a new post
     </button>
+
+
+
   </div>
   
   
 
 
-  Post:
+  Post Preview:
+
   <h2 class="title">{{newPost.title}}</h2>
   {{newPost.content}} 
+  <div ng-repeat="tag in tags">
+  </div>
+  
   
   
   <span ng-repeat="post in posts | filter:search:strict">
