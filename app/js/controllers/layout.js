@@ -29,9 +29,9 @@ homeControllerModule.controller('homeController', ['$scope', '$http', function($
 
 $scope.tags =
 [ 
-{ "id": "1a", "name": "2cool4school" },
-{ "id": "2b", "name": "kittycat" },
-{ "id": "doop5", "name": "everything is awesome" }
+{ "id": "1a", "name": "tech" },
+{ "id": "2b", "name": "art" },
+{ "id": "doop5", "name": "etc" }
 ]
 
 $scope.getTagName = function(id) {
