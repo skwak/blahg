@@ -1,34 +1,48 @@
 <div ng-controller="homeController">
   
-  Search: <input type="text" ng-model="search"/>
-  Search by title: <input type="text" ng-model="search.title">
-  <br>
-  Tags: <span ng-repeat="tag in tags">
+  Search:<br>
+  <input type="text" ng-model="search"/><br>
+  
+  Search by title:<br>
+  <input type="text" ng-model="search.title"><br>
+  
+  Tags:<br>
+  <span ng-repeat="tag in tags">
     <input type="checkbox" value="tag.id" ng-click="addTag(tag.id)">{{tag.name}}</input>
   </span><br>
   tag array is {{tagArray}}<br>
   
-  search is: {{search}}
+  search is: {{search}} 
   <br><br><hr>
   
-  WRITE A NEW POST: 
+  new post:
   <div class="form">
-    Title: <input type="text" ng-model="newPost.title"/><br>
-    Content: <input type="text" ng-model="newPost.content"/><br>
-    Tags: <span ng-repeat="tag in tags">
-      <input type="checkbox" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input><br>
+    Title:<br>
+    <input type="text" ng-model="newPost.title"/><br>
+    
+    Content:<br>
+    <input type="text" ng-model="newPost.content"/><br>
+    
+    Tags:<br>
+    
+    <span ng-repeat="tag in tags"><br>
+      <input type="checkbox" ng-model="checked" ng-init="checked=false" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input><br>
+      <span ng-if="checked" class="animate-if">
+        checked {{newPost.tag}}
+      </span>
     </span>
     <button ng-click="submitNewPost()">
       Create a new post
     </button>
   </div>
   
-  HERE'S YOUR POST:
-  {{newPost.title}}
-  {{newPost.content}}
   
-  <!-- doesn't work. figure this out! -->
-  {{newPost.tag.id}}
+
+
+  Post:
+  <h2 class="title">{{newPost.title}}</h2>
+  {{newPost.content}} 
+  
   
   <span ng-repeat="post in posts | filter:search:strict">
     

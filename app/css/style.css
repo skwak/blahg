@@ -10,3 +10,11 @@ body a {
 .form {
   padding: 1em;
 }
+
+.title {
+  margin-bottom: .2em;
+}
+
+input[type="text"] {
+  width: 10em;
+}

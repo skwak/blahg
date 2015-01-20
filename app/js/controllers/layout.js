@@ -38,17 +38,29 @@ $scope.submitNewPost = function(){
     {
       post: {
         title: $scope.newPost.title,
-        content: $scope.newPost.content
+        content: $scope.newPost.content,
+        tag: $scope.newPost.tag
         // eventually will want to add tags and dates
       }
     }
-  )
+  );
   // var postToPush = {};
   // postToPush.title = $scope.newPost.title;
   // postToPush.content = $scope.newPost.content;
   // postToPush.tag_ids = $scope.newPost.tag_ids;
   // $scope.posts.push(postToPush);
 };
+
+
+$scope.addTag = function(id) {
+  var i = $scope.tagArray.indexOf(id);
+  if(i == -1) {
+    $scope.tagArray.push(id);
+  } else {
+    $scope.tagArray.splice(i, 1);
+  }
+};
+}]);
 
 $scope.toggleId = function(id) {
   var i = $scope.newPost.tag_ids.indexOf(id);
@@ -61,16 +73,6 @@ $scope.toggleId = function(id) {
 };
 
 $scope.tagArray = [];
-
-$scope.addTag = function(id) {
-  var i = $scope.tagArray.indexOf(id);
-  if(i == -1) {
-    $scope.tagArray.push(id);
-  } else {
-    $scope.tagArray.splice(i, 1);
-  }
-};
-}]);
 
 homeControllerModule.filter('selectedTags', function() {
   return function(posts, tagArray) {
