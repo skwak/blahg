@@ -1,17 +1,6 @@
 <div ng-controller="homeController">
   <div class="main-content">
     
-    Search:<br>
-    <input type="text" ng-model="search"/><br>
-    
-    Search by title:<br>
-    <input type="text" ng-model="search.title"><br>
-    
-    Tags:<br>
-    <span ng-repeat="tag in tags">
-      <input type="checkbox" value="tag.id" ng-click="addTag(tag.id)">{{tag.name}}</input>
-    </span><br>
-    
     <hr>
     
     new post:
@@ -71,6 +60,11 @@
   </div>
   
   <div class="sidebar">
+    Search:<br>
+    <input type="text" ng-model="search"/><br>
+    
+    Search by title:<br>
+    <input type="text" ng-model="search.title"><br>
     
     tags:
     <div ng-repeat="tag in tags">
