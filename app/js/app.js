@@ -14,7 +14,7 @@ blahgApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/posts',
     templateUrl: 'app/views/posts.html'
   })
-  .state('posts.new', {
+  .state('new', {
     url: '/new-post',
     views: {
       'new': {
