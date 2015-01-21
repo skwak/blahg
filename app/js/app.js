@@ -25,6 +25,10 @@ blahgApp.config(function($stateProvider, $urlRouterProvider) {
   .state('show', {
     url: '/post/:id',
     templateUrl: 'app/views/show.html'
+  })
+  .state('about', {
+    url: '/about',
+    templateUrl: 'app/views/about.html'
   });
   
   $urlRouterProvider.otherwise('/');
