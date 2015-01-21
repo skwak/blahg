@@ -4,10 +4,13 @@ var postsControllerModule = angular.module('postsControllerModule', []);
 //   $scope.name = 'posts controller awelrkja;rlekwjr;awerjwakl;jyaya';
 // }]);
 
-postsControllerModule.controller('newPostsController', ['$scope', '$http', function() {
-  $scope.newName = 'new controller';
-  // $scope.name = 'posts controller awelrkja;rlekwjr;awerjwakl;jyaya';
+postsControllerModule.controller('newPostController', ['$scope', '$http', function($scope, $http) {
   $scope.newPost = {"title": '', "content": '', "tag_ids": []};
+  
+  $http.get('http://localhost:3000/tags').success(function(data) {
+    $scope.tags = data;
+  });
+  
 }]);
 
 
@@ -16,3 +19,4 @@ postsControllerModule.controller('newPostsController', ['$scope', '$http', funct
 //   $scope.postName = "this is the post/show view";
 //   $scope.id = $stateParams.id;
 // }]);
+
