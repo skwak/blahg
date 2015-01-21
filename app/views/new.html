@@ -1,6 +1,8 @@
 <div ng-controller="newPostController">
-  Title: <input type="text" ng-model="newPost.title" />
-  Content: <input type="text" ng-model="newPost.content" />
+  Title:<br>
+  <input class="biggish-text" type="text" ng-model="newPost.title" /><br>
+  Content:<br>
+  <input class="big-text" type="text" ng-model="newPost.content" /><br><br>
   <button ng-click="submitNewPost()">Submit</button>
-  {{newPost}}
+
 </div>

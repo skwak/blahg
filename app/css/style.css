@@ -15,8 +15,16 @@ body a {
   padding: 1em;
 }
 
-input[type="text"] {
+.small-text {
   width: 10em;
+}
+
+.biggish-text, .big-text {
+  width: 70%;
+}
+
+.big-text {
+  height: 20em;
 }
 
 .blog-title {

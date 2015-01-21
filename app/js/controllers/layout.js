@@ -33,14 +33,14 @@ $scope.getTagName = function(id) {
 
 $scope.newPost = {"title": '', "content": '', "tag_ids": []};
 
-$scope.submitNewPost = function(){
+$scope.submitNewPost = function() {
   $http.post('http://localhost:3000/posts', 
     {
       post: {
         title: $scope.newPost.title,
         content: $scope.newPost.content,
         tag: $scope.newPost.tag
-        // eventually will want to add tags and dates
+        // eventually will want to add dates
       }
     }
   );
