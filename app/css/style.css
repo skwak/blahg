@@ -37,15 +37,17 @@ hr {
   border-top: 1px solid #ccc;
   margin: 1em 0; 
   padding: 0; 
-  width: 60%;
+  width: 90%;
 }
 
-.content {
+.main-content {
   float: left;
+  width: 60%;
 }
 
 .sidebar {
   float: right;
+  width: 40%;
 }
 
 button {
