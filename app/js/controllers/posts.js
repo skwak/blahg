@@ -7,6 +7,19 @@ var postsControllerModule = angular.module('postsControllerModule', []);
 postsControllerModule.controller('newPostController', ['$scope', '$http', function($scope, $http) {
   $scope.newPost = {"title": '', "content": '', "tag_ids": []};
   
+  $scope.submitNewPost = function() {
+    $http.post('http://localhost:3000/posts', 
+  {
+    post: {
+      title: $scope.newPost.title,
+      content: $scope.newPost.content,
+      tag: $scope.newPost.tag
+      // eventually will want to add dates
+    }
+  });
+
+};
+
   $http.get('http://localhost:3000/tags').success(function(data) {
     $scope.tags = data;
   });
