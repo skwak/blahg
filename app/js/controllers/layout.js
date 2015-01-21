@@ -1,8 +1,8 @@
 var homeControllerModule = angular.module('homeControllerModule', []);
 
-homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http) {
+homeControllerModule.controller('homeController', ['$scope', '$http', function($scope, $http, apiService) {
   $scope.hello = "Hi";
-  
+
 $http.get('http://localhost:3000/posts').success(function(data) {
   $scope.posts = data;
 });

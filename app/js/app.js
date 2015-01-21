@@ -1,8 +1,7 @@
 var blahgApp = angular.module('blahgApp', [
   'ui.router',
   'homeControllerModule',
-  'postsControllerModule',
-  'servicesModule'
+  'postsControllerModule'
 ]);
 
 blahgApp.config(function($stateProvider, $urlRouterProvider) {
