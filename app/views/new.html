@@ -1,4 +1,4 @@
-<div ng-controller="newPostController">
+<div class="new-post" ng-controller="newPostController">
   Title:<br>
   <input class="biggish-text" type="text" ng-model="newPost.title" /><br>
   Content:<br>
@@ -16,7 +16,15 @@
   <button ng-click="submitNewPost()">
     Create a new post
   </button>
+</div>  
   
+  Post Preview:
+  
+  <h2 class="title">{{newPost.title}}</h2>
+  {{newPost.content}} 
+  <div ng-repeat="tag in tags"> 
+    {{tag.name}}
+  </div>
   
   
 </div>

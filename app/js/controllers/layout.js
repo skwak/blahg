@@ -31,26 +31,6 @@ $scope.getTagName = function(id) {
   return ret;
 };
 
-$scope.newPost = {"title": '', "content": '', "tag_ids": []};
-
-$scope.submitNewPost = function() {
-  $http.post('http://localhost:3000/posts', 
-    {
-      post: {
-        title: $scope.newPost.title,
-        content: $scope.newPost.content,
-        tag: $scope.newPost.tag
-        // eventually will want to add dates
-      }
-    }
-  );
-  // var postToPush = {};
-  // postToPush.title = $scope.newPost.title;
-  // postToPush.content = $scope.newPost.content;
-  // postToPush.tag_ids = $scope.newPost.tag_ids;
-  // $scope.posts.push(postToPush);
-};
-
 
 $scope.addTag = function(id) {
   var i = $scope.tagArray.indexOf(id);
