@@ -7,10 +7,13 @@ $http.get('http://localhost:3000/posts').success(function(data) {
   $scope.posts = data;
 });
 
-
 $http.get('http://localhost:3000/tags').success(function(data) {
   $scope.tags = data;
 });
+
+$scope.deletePost = function() {
+  $http.delete('http://localhost:3000/posts/:id');
+};
 
 // $scope.tags =
 // [ 

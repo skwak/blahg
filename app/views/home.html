@@ -2,13 +2,7 @@
   <div class="main-content">
     
     <hr>
-    
-    
-    
-    
 
-    
-    
     <span ng-repeat="post in posts | filter:search:strict">
       
       <a ui-sref="show({id: post.id})">
@@ -21,6 +15,10 @@
       <small ng-repeat="tag_id in post.tag_ids">
         {{getTagName(tag_id)}}
       </small><br>
+      
+      <button ng-click="deletePost()">
+        Delete Post
+      </button>
       
       <hr>
     </span>

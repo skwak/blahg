@@ -1,40 +1,34 @@
 <div ng-controller='postsController'>
-  new post:
-  <div class="form">
-    Title:<br>
-    <input type="text" ng-model="newPost.title"/><br>
+
+  <span ng-repeat="post in posts | filter:search:strict">
     
-    Content:<br>
-    <input type="text" ng-model="newPost.content"/><br>
+    <a ui-sref="show({id: post.id})">
+      <h2 class="title">{{post.title}}</h2><br>
+    </a>
     
-    Tags:<br>
+    <span>{{post.date | date:'EEEE'}}</span><br>
+    <p>{{post.content}}</p>
     
-    <div ng-repeat="tag in tags"><br>
-      <input type="checkbox" ng-model="checked" ng-init="checked=false" value="tag.id" ng-click="toggleId(tag.id)">{{tag.name}}</input><br>
-      
-      <span ng-if="checked" class="animate-if">
-        {{tag.name}}
-      </span>
-      
-    </div>
+    <small ng-repeat="tag_id in post.tag_ids">
+      {{getTagName(tag_id)}}
+    </small><br>
     
-    <button ng-click="submitNewPost()">
-      Create a new post
-    </button>
-    
-    
-    
-  </div>
+    <hr>
+  </span>
+</div>
+
+<div class="sidebar">
+  Search:<br>
+  <input class="small-text" type="text" ng-model="search"/><br>
   
+  Search by title:<br>
+  <input class="small-text" type="text" ng-model="search.title"><br>
   
-  
-  
-  Post Preview:
-  
-  <h2 class="title">{{newPost.title}}</h2>
-  {{newPost.content}} 
+  tags:
   <div ng-repeat="tag in tags">
+    {{tag.name}}
   </div>
   
-  
+</div>
+
 </div>
