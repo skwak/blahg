@@ -11,16 +11,13 @@ $http.get('http://localhost:3000/tags').success(function(data) {
   $scope.tags = data;
 });
 
-$scope.deletePost = function() {
-  $http.delete('http://localhost:3000/posts/:id');
-};
 
-// $scope.tags =
-// [ 
-// { "id": "1a", "name": "tech" },
-// { "id": "2b", "name": "art" },
-// { "id": "doop5", "name": "etc" }
-// ];
+// http://stackoverflow.com/questions/14250642/angularjs-how-to-remove-an-item-from-scope
+
+// $scope.delete(post) = function(id) {
+//   $http.delete('http://localhost:3000/posts/:id');
+// };
+
 
 $scope.getTagName = function(id) {
   var ret = "";
