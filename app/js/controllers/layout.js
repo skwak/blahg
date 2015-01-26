@@ -14,8 +14,32 @@ $http.get('http://localhost:3000/tags').success(function(data) {
 
 // http://stackoverflow.com/questions/14250642/angularjs-how-to-remove-an-item-from-scope
 
-// $scope.delete(post) = function(id) {
-//   $http.delete('http://localhost:3000/posts/:id');
+// $scope.submitNewPost = function() {
+//   $http.post('http://localhost:3000/posts', 
+// {
+//   post: {
+//     title: $scope.newPost.title,
+//     content: $scope.newPost.content,
+//     tag: $scope.newPost.tag,
+//     // date: $scope.newPost.date
+//     // eventually will want to add dates
+//   }
+// });
+// 
+// };
+
+$scope.deletePost = function() {
+  $http.delete('http://localhost:3000/posts/54c03458b69c312243000003');
+};
+
+
+// $scope.delete = function(index) {
+//   // var post_to_delete = $scope.posts[index];
+//   
+//   $http.delete('http://localhost:3000/posts/54c03458b69c312243000003'), function(success) {
+//     $scope.posts = data;
+//     // $scope.posts.splice(index, 1);
+//   };
 // };
 
 
@@ -67,6 +91,6 @@ homeControllerModule.filter('selectedTags', function() {
         }
       }
       return false;
-    })
-  }
-})
+    });
+  };
+});

@@ -1,4 +1,11 @@
 <div ng-controller="postController">
-  name is {{postName}}
-  id is {{id}}
+  <h2>{{post.title}}</h2>
+  
+  <div>
+    {{post.content}}
+  </div>
+  
+  <small ng-repeat="tag in post.tags">
+    {{tag.name}}
+  </small>
 </div>

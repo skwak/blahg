@@ -1,7 +1,7 @@
 var postsControllerModule = angular.module('postsControllerModule', []);
 
 postsControllerModule.controller('newPostController', ['$scope', '$http', function($scope, $http) {
-  
+    
   $http.get('http://localhost:3000/posts').success(function(data) {
     $scope.posts = data;
   });
@@ -30,4 +30,15 @@ postsControllerModule.controller('newPostController', ['$scope', '$http', functi
     $scope.tags = data;
   });
   
+}]);  
+
+
+postsControllerModule.controller('postController', ['$scope', '$http', '$stateParams',
+function($scope, $http, $stateParams) {
+  $scope.post = {};
+  $scope.id = $stateParams.id;
+  
+  $http.get('http://localhost:3000/posts/' + $scope.id).success(function(data) {
+    $scope.post = data;
+  });
 }]);
